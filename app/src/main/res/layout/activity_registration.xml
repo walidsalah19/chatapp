@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user_access.registration"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/add_profile_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_person_24"
+                app:civ_border_color="@color/button_color"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/select_profile_image"
+                android:layout_alignRight="@id/add_profile_image"
+                android:layout_alignBottom="@id/add_profile_image"
+                android:background="@drawable/ic_baseline_add_24"></TextView>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="user name "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/registration_username_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_shape"
+            android:hint="enter your name"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="email"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/registration_email_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/edittext_shape"
+        android:hint="enter your email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="password"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/registration_password_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_shape"
+        android:hint="enter your password"
+        android:layout_margin="10dp"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textSize="17sp"
+        android:password="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:ignore="Deprecated" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/create_account_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_shap"
+        android:padding="4dp"
+        android:text="login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

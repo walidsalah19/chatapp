@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".chat.chat_fragment"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rl_bottom"></androidx.recyclerview.widget.RecyclerView>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cardview_light_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/send_message"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_shap"
+                android:gravity="center"
+                android:stateListAnimator="@null"
+                android:textSize="8dp"
+                app:srcCompat="@drawable/ic_baseline_send_24" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/send_message"
+                android:background="@drawable/edittext_shape">
+
+                <EditText
+                    android:id="@+id/send_message_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="write your message"
+                    android:inputType="textCapSentences"
+                    android:maxLines="3"
+                    android:padding="16dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/button_color"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
