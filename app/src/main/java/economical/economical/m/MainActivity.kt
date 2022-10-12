@@ -1,23 +1,28 @@
 package economical.economical.m
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.messaging.FirebaseMessaging
 import economical.economical.m.adapter.user_data_adapter
 import economical.economical.m.interfaces.mvvm_interface
 import economical.economical.m.user_access.login
 import economical.economical.m.viewmodels.get_users_viewmodel
+import java.util.*
 
 class MainActivity : AppCompatActivity() , mvvm_interface {
-    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val userid=auth.currentUser?.uid.toString()
    private lateinit var toolbar:Toolbar
    private lateinit var recyclerview_users:RecyclerView
    private lateinit var viewmodel:get_users_viewmodel
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity() , mvvm_interface {
         viewmodel.intial_viewmodel(this)
         toolbar()
         recyclerview()
-
+        updateToken()
     }
     private fun toolbar()
     {
@@ -75,4 +80,22 @@ class MainActivity : AppCompatActivity() , mvvm_interface {
             adapter.notifyDataSetChanged()
         }
     }
+    private fun updateToken() {
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task: Task<String> ->
+                if (!task.isSuccessful) {
+                    Log.d("tag", "Fetching FCM registration token failed", task.exception)
+                    return@addOnCompleteListener
+                }
+                // Get new FCM registration toke
+                Log.d("tag", task.result)
+                check_token(task.result)
+            }
+    }
+    private fun check_token(token:String) {
+        FirebaseDatabase.getInstance().getReference("Users").child(userid)
+            .child("token").setValue(token)
+
+    }
+
 }

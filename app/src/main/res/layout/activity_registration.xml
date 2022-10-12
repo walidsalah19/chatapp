@@ -118,7 +118,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_shap"
         android:padding="4dp"
-        android:text="login"
+        android:text="create account"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
